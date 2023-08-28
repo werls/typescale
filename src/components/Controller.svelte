@@ -1,10 +1,51 @@
 <script>
-	const ptToPx = (pt) => (pt * 1.3333333333333).toFixed(0);
-  const pxToPt = (px) => (px / 1.3333333333333).toFixed(0);
+	import { onMount } from "svelte";
+	import { makeTypeScale } from '$lib';
+  import { baseSize, inputText, scale, typeScale } from "../stores.js";
 
-  export let baseSize = pxToPt(16);
-	let scale;
-	let inputText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+	const scales = [
+		{
+			name: "Segunda Menor",
+			value: 1.067
+		},
+		{
+			name: "Segunda Maior",
+			value: 1.125
+		},
+		{
+			name: "Terceira Menor",
+			value: 1.2
+		},
+		{
+			name: "Terceira Maior",
+			value: 1.25
+		},
+		{
+			name: "Quarta Perfeita",
+			value: 1.333
+		},
+		{
+			name: "Quarta Aumentada",
+			value: 1.414
+		},
+		{
+			name: "Quinta Perfeita",
+			value: 1.5
+		},
+		{
+			name: "Razão Áurea",
+			value: 1.618
+		}
+	]
+
+  function updateTypeScale() {
+		console.log($scale, $baseSize);
+    typeScale.set(makeTypeScale($scale, $baseSize));
+  }
+
+	onMount(() => {
+		updateTypeScale();
+	});
 </script>
 
 <aside>
@@ -16,8 +57,8 @@
           class="p-1 bg-slate-300 w-20"
           name="base-size"
           type="number"
-          bind:value={baseSize}
-          on:input={updateFontSize}
+          bind:value={$baseSize}
+					on:input={() => updateTypeScale($scale, $baseSize)}
         />
         <span class="text-sm align-bottom">pt</span>
       </div>
@@ -29,17 +70,12 @@
           class="p-1 bg-slate-300"
           name="scale"
           id="scale"
-          bind:value={scale}
-          on:change={updateFontSize}
+          bind:value={$scale}
+					on:change={() => updateTypeScale($scale, $baseSize)}
         >
-          <option value="1.067">1.067 — Segunda Menor</option>
-          <option value="1.125">1.125 — Segunda Maior</option>
-          <option value="1.2">1.200 — Terceira Menor</option>
-          <option value="1.25" selected>1.250 — Terceira Maior</option>
-          <option value="1.333">1.333 — Quarta Perfeita</option>
-          <option value="1.414">1.414 — Quarta Aumentada</option>
-          <option value="1.5">1.500 — Quinta Perfeita</option>
-          <option value="1.618">1.618 — Razão Áurea</option>
+					{#each scales as scaleOption} 
+						<option value={scaleOption.value}>{scaleOption.value} — {scaleOption.name}</option>
+					{/each}
         </select>
       </div>
     </div>
@@ -47,7 +83,7 @@
     <div class="flex flex-col gap-1">
       <label for="input-text" class="text-sm">Texto</label>
       <div class="flex gap-2 items-center">
-        <input type="text" class="p-1 bg-slate-300" bind:value={inputText} />
+        <input type="text" class="p-1 bg-slate-300" bind:value={$inputText} />
       </div>
     </div>
   </form>

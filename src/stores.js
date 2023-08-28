@@ -1,29 +1,8 @@
-export let baseSize = 12;
-export let scale = 1;
+import { writable } from 'svelte/store';
+import { makeTypeScale } from '$lib';
+// import { ptToPx } from '$lib';
 
-export let typeScale = [
-	{
-		type: "h1",
-		size: baseSize * scale * 5,
-	},
-	{
-		type: "h2",
-		size: baseSize * scale * 4,
-	},
-	{
-		type: "h3",
-		size: baseSize * scale * 3,
-	},
-	{
-		type: "h4",
-		size: baseSize * scale * 2,
-	},
-	{
-		type: "body",
-		size: baseSize * scale * 1,
-	},
-	{
-		type: "small",
-		size: (baseSize / scale) * 1,
-	}
-];
+export let baseSize = writable(24);
+export let scale = writable(1.250);
+export let inputText = writable('Lorem ipsum dolor sit amet.');
+export let typeScale = writable(makeTypeScale(scale, baseSize));
