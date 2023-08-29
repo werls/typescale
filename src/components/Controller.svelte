@@ -55,12 +55,12 @@
 </script>
 
 <aside>
-  <form class="bg-slate-200 p-3 flex flex-col gap-2">
+  <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
     <div class="flex flex-col gap-1">
       <label class="text-sm" for="base-size">Tamanho base</label>
       <div class="flex gap-2 items-center">
         <input
-          class="p-1 bg-slate-300 w-20"
+          class="p-1 bg-slate-300"
           name="base-size"
           type="number"
           bind:value={$baseSize}

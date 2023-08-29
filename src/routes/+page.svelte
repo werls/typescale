@@ -25,8 +25,8 @@
 
 <main class="py-3 flex flex-col justify-center items-center">
   <div class="px-3 flex gap-2 w-full">
-    <Button clickHandler={handleAdd}>+</Button>
-    <Button clickHandler={handleRemove}>-</Button>
+    <Button description="Adicionar um nível" clickHandler={handleAdd}>+</Button>
+    <Button description="Remover um nível" clickHandler={handleRemove}>-</Button>
   </div>
   {#each $typeScale.headings as item}
     <LineOfType {item}>{$inputText}</LineOfType>
