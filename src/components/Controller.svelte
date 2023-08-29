@@ -1,51 +1,57 @@
 <script>
-	import { onMount } from "svelte";
-	import { makeTypeScale } from '$lib';
-  import { baseSize, inputText, scale, typeScale } from "../stores.js";
+  import { onMount } from "svelte";
+  import { TypeScale } from "$lib/typeScale";
+  // import { makeTypeScale } from '$lib';
+  import {
+    baseSize,
+    inputText,
+    scale,
+		levels,
+    typeScale
+  } from "../stores.js";
 
-	const scales = [
-		{
-			name: "Segunda Menor",
-			value: 1.067
-		},
-		{
-			name: "Segunda Maior",
-			value: 1.125
-		},
-		{
-			name: "Terceira Menor",
-			value: 1.2
-		},
-		{
-			name: "Terceira Maior",
-			value: 1.25
-		},
-		{
-			name: "Quarta Perfeita",
-			value: 1.333
-		},
-		{
-			name: "Quarta Aumentada",
-			value: 1.414
-		},
-		{
-			name: "Quinta Perfeita",
-			value: 1.5
-		},
-		{
-			name: "Razão Áurea",
-			value: 1.618
-		}
-	]
+  const scales = [
+    {
+      name: "Segunda Menor",
+      value: 1.067,
+    },
+    {
+      name: "Segunda Maior",
+      value: 1.125,
+    },
+    {
+      name: "Terça Menor",
+      value: 1.2,
+    },
+    {
+      name: "Terça Maior",
+      value: 1.25,
+    },
+    {
+      name: "Quarta Perfeita",
+      value: 1.333,
+    },
+    {
+      name: "Quarta Aumentada",
+      value: 1.414,
+    },
+    {
+      name: "Quinta Perfeita",
+      value: 1.5,
+    },
+    {
+      name: "Razão Áurea",
+      value: 1.618,
+    },
+  ];
 
-  function updateTypeScale() {
-		console.log($scale, $baseSize);
-    typeScale.set(makeTypeScale($scale, $baseSize));
+  function handleInput() {
+    typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
   }
 
-	onMount(() => {
-		updateTypeScale();
-	});
+  onMount(() => {
+		handleInput()
+  });
 </script>
 
 <aside>
@@ -58,9 +64,9 @@
           name="base-size"
           type="number"
           bind:value={$baseSize}
-					on:input={() => updateTypeScale($scale, $baseSize)}
+          on:input={handleInput}
         />
-        <span class="text-sm align-bottom">pt</span>
+        <span class="text-sm align-bottom">px</span>
       </div>
     </div>
     <div class="flex flex-col gap-1">
@@ -71,11 +77,13 @@
           name="scale"
           id="scale"
           bind:value={$scale}
-					on:change={() => updateTypeScale($scale, $baseSize)}
+          on:change={handleInput}
         >
-					{#each scales as scaleOption} 
-						<option value={scaleOption.value}>{scaleOption.value} — {scaleOption.name}</option>
-					{/each}
+          {#each scales as scaleOption}
+            <option value={scaleOption.value}
+              >{scaleOption.value} — {scaleOption.name}</option
+            >
+          {/each}
         </select>
       </div>
     </div>

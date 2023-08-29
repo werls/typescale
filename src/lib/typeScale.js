@@ -1,0 +1,104 @@
+export class TypeScale {
+	constructor(baseSize_, scale_, levels_ = 4) {
+		this.baseSize = baseSize_
+		this.scale = scale_
+		this.levels = levels_
+		this.typeScale = {
+			headings: [],
+			body: { type: "body", size: this.baseSize },
+			small: [{ type: "small", size: this.baseSize / this.scale }]
+		}
+
+		this.createHeadings(this.levels)
+	}
+
+	static generateTypeScale(baseSize_, scale_, levels_ = 4) {
+		const typeScale = {
+			headings: [],
+			body: { type: "body", size: baseSize_ },
+			small: [{ type: "small", size: baseSize_ / scale_ }]
+		}
+
+		for (let i = 1; i <= levels_; i++) {
+			typeScale.headings.push({
+				type: `h${i}`,
+				size: (baseSize_ * scale_ ** (levels_ - i + 1)).toFixed(2),
+			})
+		}
+
+		return typeScale
+	}
+
+	createHeadings(levels) {
+		for (let i = 1; i <= levels; i++) {
+			this.typeScale.headings.push({
+				type: `h${i}`,
+				size: this.baseSize * this.scale ** (levels - i + 1),
+			})
+		}
+
+		// Sort headings array from h1 to h6
+		this.typeScale.headings.sort((a, b) => {
+			if (a.type < b.type) return -1;
+			if (a.type > b.type) return 1;
+			return 0;
+		});
+	}
+
+	getTypeScale() {
+		return this.typeScale
+	}
+
+	getHeadings() {
+		return this.typeScale.headings
+	}
+
+	getBody() {
+		return this.typeScale.body
+	}
+
+	updateTypeScale(baseSize_, scale_, levels_) {
+		this.baseSize = baseSize_
+		this.scale = scale_
+		this.levels = levels_
+		this.typeScale = {
+			headings: [],
+			body: [{ type: "body", size: this.baseSize }],
+			small: [{ type: "small", size: this.baseSize / this.scale }]
+		}
+
+		this.createHeadings(this.levels)
+	}
+
+	ptToPx(pt) { return (pt * 1.3333333333333) }
+	pxToPt(px) { return (px / 1.3333333333333) }
+
+	// makeTypeScale(scale, baseSize) {
+	// 	return [
+	// 		{
+	// 			type: "h1",
+	// 			size: baseSize * scale * 4,
+	// 		},
+	// 		{
+	// 			type: "h2",
+	// 			size: baseSize * scale * 3,
+	// 		},
+	// 		{
+	// 			type: "h3",
+	// 			size: baseSize * scale * 2,
+	// 		},
+	// 		{
+	// 			type: "h4",
+	// 			size: baseSize * scale * 1,
+	// 		},
+	// 		{
+	// 			type: "body",
+	// 			size: baseSize,
+	// 		},
+	// 		{
+	// 			type: "small",
+	// 			size: baseSize / scale,
+	// 		}
+	// 	];
+	// }
+}

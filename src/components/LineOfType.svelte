@@ -1,6 +1,4 @@
 <script>
-  import { ptToPx } from "$lib";
-	// export let text = "Lorem ipsum dolor sit amet.";
 	export let item;
 </script>
 

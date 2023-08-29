@@ -2,8 +2,9 @@
   import "../app.css";
 </script>
 
-<header class="bg-slate-300 p-3">
+<header class="bg-slate-300 p-3 flex justify-between items-baseline">
   <h1 class="text-xl font-medium">Escala Tipográfica</h1>
+  <p class="text-slate-200">Werls, 2023</p>
 </header>
 
 <slot />
