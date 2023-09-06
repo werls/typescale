@@ -14,4 +14,4 @@ jobs:
         server: ftp.werls.xyz
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
+        local-dir: ./build/
