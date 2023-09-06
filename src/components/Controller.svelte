@@ -87,7 +87,7 @@
       </div>
     </div>
     <!-- Units -->
-    <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/>
+    <!-- <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/> -->
     <!-- Scale -->
     <InputSelect title="Escala" bind={scale} options={scales} handler={handleInput}/>
     <!-- Text -->
