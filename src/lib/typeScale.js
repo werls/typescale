@@ -1,8 +1,9 @@
 export class TypeScale {
-	constructor(baseSize_, scale_, levels_ = 4) {
+	constructor(baseSize_, scale_, levels_ = 4, unit_ = 'px') {
 		this.baseSize = baseSize_
 		this.scale = scale_
 		this.levels = levels_
+		this.unit = unit_
 		this.typeScale = {
 			headings: [],
 			body: { type: "body", size: this.baseSize },
@@ -12,18 +13,37 @@ export class TypeScale {
 		this.createHeadings(this.levels)
 	}
 
-	static generateTypeScale(baseSize_, scale_, levels_ = 4) {
-		const typeScale = {
-			headings: [],
-			body: { type: "body", size: baseSize_ },
-			small: [{ type: "small", size: baseSize_ / scale_ }]
-		}
+	static generateTypeScale(baseSize_, scale_, levels_ = 4, unit_ = 'px') {
+		const ptToPx = (pt) => { return (pt * 1.3333333333333) }
+		const pxToPt = (px) => { return (px / 1.3333333333333) }
 
-		for (let i = 1; i <= levels_; i++) {
-			typeScale.headings.push({
-				type: `h${i}`,
-				size: (baseSize_ * scale_ ** (levels_ - i + 1)).toFixed(2),
-			})
+		let typeScale = ''
+		if (unit_ === 'px') {
+			typeScale = {
+				headings: [],
+				body: { type: "body", size: baseSize_ },
+				small: [{ type: "small", size: baseSize_ / scale_ }]
+			}
+	
+			for (let i = 1; i <= levels_; i++) {
+				typeScale.headings.push({
+					type: `h${i}`,
+					size: (baseSize_ * scale_ ** (levels_ - i + 1)).toFixed(2),
+				})
+			}
+		} else if (unit_ === 'pt') {
+			typeScale = {
+				headings: [],
+				body: { type: "body", size: ptToPx(baseSize_) },
+				small: [{ type: "small", size: ptToPx(baseSize_ / scale_) }]
+			}
+	
+			for (let i = 1; i <= levels_; i++) {
+				typeScale.headings.push({
+					type: `h${i}`,
+					size: (ptToPx(baseSize_) * scale_ ** (levels_ - i + 1)).toFixed(2),
+				})
+			}
 		}
 
 		return typeScale
@@ -70,8 +90,7 @@ export class TypeScale {
 		this.createHeadings(this.levels)
 	}
 
-	ptToPx(pt) { return (pt * 1.3333333333333) }
-	pxToPt(px) { return (px / 1.3333333333333) }
+	
 
 	// makeTypeScale(scale, baseSize) {
 	// 	return [

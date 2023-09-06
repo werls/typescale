@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		
+		<link href="./_app/immutable/assets/0.d7440403.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.6ab997d7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.c17f58d9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.ba77aa47.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.ae5823ff.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.5b15e774.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.98b6bb4d.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.d7251a42.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.3453b6a7.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">  <header class="bg-slate-300 p-3 flex justify-between items-baseline" data-svelte-h="svelte-1usmjnl"><h1 class="text-xl font-medium">Escala Tipográfica</h1> <p class="text-slate-200"><a class="hover:text-slate-500" href="https://werls.xyz">Werls, 2023</a></p></header> <aside><form class="bg-slate-200 px-3 py-5 flex flex-col gap-2"> <div class="flex flex-col gap-1"><label class="text-sm" for="base-size" data-svelte-h="svelte-1nuvcpd">Tamanho base</label> <div class="flex gap-2 items-center"><input class="p-1 bg-slate-300" name="base-size" type="number" value="24"> <span class="text-sm align-bottom" data-svelte-h="svelte-dumtc6">px</span></div></div>  <div class="flex flex-col gap-1"><label class="text-sm" for="base-size">Unidades</label> <div class="flex gap-2 items-center"><select class="p-1 bg-slate-300" name="Unidades" id="Unidades"><option value="px">px — Pixels</option><option value="pt">pt — Points</option></select></div></div>  <div class="flex flex-col gap-1"><label class="text-sm" for="base-size">Escala</label> <div class="flex gap-2 items-center"><select class="p-1 bg-slate-300" name="Escala" id="Escala"><option value="1.067">1.067 — Segunda Menor</option><option value="1.125">1.125 — Segunda Maior</option><option value="1.2">1.2 — Terça Menor</option><option value="1.25">1.25 — Terça Maior</option><option value="1.333">1.333 — Quarta Perfeita</option><option value="1.414">1.414 — Quarta Aumentada</option><option value="1.5">1.5 — Quinta Perfeita</option><option value="1.618">1.618 — Razão Áurea</option></select></div></div>  <div class="flex flex-col gap-1"><label for="input-text" class="text-sm" data-svelte-h="svelte-11ojdsj">Texto</label> <div class="flex gap-2 items-center"><input type="text" class="p-1 bg-slate-300" value="Lorem ipsum dolor sit amet."></div></div></form></aside> <main class="py-3 flex flex-col justify-center items-center"><div class="px-3 flex items-center gap-3 w-full"><div class="flex gap-2"><button class="border-2 border-slate-200 rounded-full text-2xl font-extralight text-slate-400 w-10 h-10 flex justify-center hover:bg-slate-200 hover:text-slate-900 transition-all" title="Adicionar um nível">+ </button> <button class="border-2 border-slate-200 rounded-full text-2xl font-extralight text-slate-400 w-10 h-10 flex justify-center hover:bg-slate-200 hover:text-slate-900 transition-all" title="Remover um nível">- </button></div> <div class="text-sm">Níveis de título: <strong>4</strong></div> </div> <div class="w-full flex"><div id="content" class="w-full"> <div class="p-3 text-slate-400 w-full"><div class="grid grid-cols-10 items-baseline gap-2"><div class="text-xs col-span-1">body</div> <div style="font-size:[object Object]px" class="text-scale text-gray-900 line-clamp-1 col-span-8">Lorem ipsum dolor sit amet.</div> <div class="text-xs col-span-1 justify-self-end">[object Object] px</div></div> <hr class="border-gray-300"></div></div> <div data-svelte-h="svelte-173ztsc"></div></div> </main> 
+			
+			<script>
+				{
+					__sveltekit_mtht1x = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.6ab997d7.js"),
+						import("./_app/immutable/entry/app.5b15e774.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

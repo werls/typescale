@@ -1,14 +1,29 @@
 <script>
   import { onMount } from "svelte";
   import { TypeScale } from "$lib/typeScale";
+  import inputSelect from "../components/InputSelect.svelte";
   // import { makeTypeScale } from '$lib';
   import {
     baseSize,
     inputText,
     scale,
 		levels,
-    typeScale
+    typeScale,
+    unit
   } from "../stores.js";
+  import InputSelect from "../components/InputSelect.svelte";
+  import { base } from "$app/paths";
+
+  const units = [
+    {
+      name: "Pixels",
+      value: "px",
+    },
+    {
+      name: "Pontos",
+      value: "pt",
+    }
+  ]
 
   const scales = [
     {
@@ -46,7 +61,8 @@
   ];
 
   function handleInput() {
-    typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
+    typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels, $unit));
+    // baseSize.set($typeScale.baseSize)
   }
 
   onMount(() => {
@@ -56,6 +72,7 @@
 
 <aside>
   <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
+    <!-- Size -->
     <div class="flex flex-col gap-1">
       <label class="text-sm" for="base-size">Tamanho base</label>
       <div class="flex gap-2 items-center">
@@ -69,25 +86,11 @@
         <span class="text-sm align-bottom">px</span>
       </div>
     </div>
-    <div class="flex flex-col gap-1">
-      <label class="text-sm" for="base-size">Escala</label>
-      <div class="flex gap-2 items-center">
-        <select
-          class="p-1 bg-slate-300"
-          name="scale"
-          id="scale"
-          bind:value={$scale}
-          on:change={handleInput}
-        >
-          {#each scales as scaleOption}
-            <option value={scaleOption.value}
-              >{scaleOption.value} — {scaleOption.name}</option
-            >
-          {/each}
-        </select>
-      </div>
-    </div>
-
+    <!-- Units -->
+    <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/>
+    <!-- Scale -->
+    <InputSelect title="Escala" bind={scale} options={scales} handler={handleInput}/>
+    <!-- Text -->
     <div class="flex flex-col gap-1">
       <label for="input-text" class="text-sm">Texto</label>
       <div class="flex gap-2 items-center">
