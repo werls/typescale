@@ -32,6 +32,7 @@
   }
 
   onMount(() => {
+    document.title = "Typescale"
   });
 </script>
 
