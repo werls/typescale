@@ -24,7 +24,7 @@ export class TypeScale {
 				body: { type: "body", size: baseSize_ },
 				small: [{ type: "small", size: baseSize_ / scale_ }]
 			}
-	
+
 			for (let i = 1; i <= levels_; i++) {
 				typeScale.headings.push({
 					type: `h${i}`,
@@ -37,7 +37,7 @@ export class TypeScale {
 				body: { type: "body", size: ptToPx(baseSize_) },
 				small: [{ type: "small", size: ptToPx(baseSize_ / scale_) }]
 			}
-	
+
 			for (let i = 1; i <= levels_; i++) {
 				typeScale.headings.push({
 					type: `h${i}`,
@@ -89,35 +89,4 @@ export class TypeScale {
 
 		this.createHeadings(this.levels)
 	}
-
-	
-
-	// makeTypeScale(scale, baseSize) {
-	// 	return [
-	// 		{
-	// 			type: "h1",
-	// 			size: baseSize * scale * 4,
-	// 		},
-	// 		{
-	// 			type: "h2",
-	// 			size: baseSize * scale * 3,
-	// 		},
-	// 		{
-	// 			type: "h3",
-	// 			size: baseSize * scale * 2,
-	// 		},
-	// 		{
-	// 			type: "h4",
-	// 			size: baseSize * scale * 1,
-	// 		},
-	// 		{
-	// 			type: "body",
-	// 			size: baseSize,
-	// 		},
-	// 		{
-	// 			type: "small",
-	// 			size: baseSize / scale,
-	// 		}
-	// 	];
-	// }
 }
