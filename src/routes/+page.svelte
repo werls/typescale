@@ -1,36 +1,34 @@
 <script>
   import { onMount } from "svelte";
-	import { typeScale, inputText, scale, levels, baseSize } from "../stores.js";
+  import { typeScale, inputText, scale, levels, baseSize } from "../stores.js";
   import { TypeScale } from "$lib/typeScale";
-	// import { makeTypeScale } from "$lib";
   import LineOfType from "../components/LineOfType.svelte";
-	import Controller from "../components/Controller.svelte";
+  import Controller from "../components/Controller.svelte";
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
-  // import Preview from "../components/Preview.svelte";
 
   function handleAdd() {
-    levels.set($levels + 1)
+    levels.update(n => n + 1);
     typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
   }
 
   function handleRemove() {
-    if ($levels === 1) return
-    levels.set($levels - 1)
+    if ($levels === 1) return;
+    levels.update(n => n - 1);
     typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
   }
 
   function copyToClipboard() {
-    var myDiv = document.getElementById('content')
-    var range = document.createRange();
-    range.selectNode(myDiv)
+    const myDiv = document.getElementById('content');
+    const range = document.createRange();
+    range.selectNode(myDiv);
 
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("copy");
 
     window.getSelection().removeAllRanges();
-    alert('Conteúdo copiado!')
+    alert('Conteúdo copiado!');
   }
 
   onMount(() => {
@@ -46,23 +44,19 @@
       <Button description="Remover um nível" clickHandler={handleRemove}>-</Button>
     </div>
     <div class="text-sm">Níveis de título: <strong>{$levels}</strong></div>
-    <!-- <ButtonIcon text="Copiar" icon="content_copy" handler={copyToClipboard}/> -->
   </div>
   <div class="w-full flex">
     <div id="content" class="w-full">
       {#each $typeScale.headings as item}
         <LineOfType {item}>{$inputText}</LineOfType>
       {/each}
-        <LineOfType item={$typeScale.body}>{$inputText}</LineOfType>
-    </div>
-    <div>
-      <!-- <Preview /> -->
+      <LineOfType item={$typeScale.body}>{$inputText}</LineOfType>
     </div>
   </div>
 </main>
 
 <style lang="postcss">
   /* :global(html) {
-		background-color: theme(colors.gray.100);
-	} */
+    background-color: theme(colors.gray.100);
+  } */
 </style>
