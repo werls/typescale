@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { TypeScale } from "$lib/typeScale";
-  import inputSelect from "../components/InputSelect.svelte";
+  // import inputSelect from "../components/InputSelect.svelte";
   // import { makeTypeScale } from '$lib';
   import {
     baseSize,
@@ -12,6 +12,7 @@
     unit
   } from "../stores.js";
   import InputSelect from "../components/InputSelect.svelte";
+  import InputValue from "../components/InputValue.svelte"
   import { base } from "$app/paths";
 
   const units = [
@@ -73,19 +74,7 @@
 <aside>
   <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
     <!-- Size -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm" for="base-size">Tamanho base</label>
-      <div class="flex gap-2 items-center">
-        <input
-          class="p-1 bg-slate-300"
-          name="base-size"
-          type="number"
-          bind:value={$baseSize}
-          on:input={handleInput}
-        />
-        <span class="text-sm align-bottom">px</span>
-      </div>
-    </div>
+    <InputValue bind={baseSize} handler={handleInput} />
     <!-- Units -->
     <!-- <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/> -->
     <!-- Scale -->
