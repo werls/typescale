@@ -1,19 +1,15 @@
 <script>
+  import {
+    baseSize, inputText, scale, levels,
+    typeScale, unit
+  } from "../stores.js";
+
   import { onMount } from "svelte";
   import { TypeScale } from "$lib/typeScale";
-  // import inputSelect from "../components/InputSelect.svelte";
-  // import { makeTypeScale } from '$lib';
-  import {
-    baseSize,
-    inputText,
-    scale,
-		levels,
-    typeScale,
-    unit
-  } from "../stores.js";
   import InputSelect from "../components/InputSelect.svelte";
-  import InputValue from "../components/InputValue.svelte"
-  import { base } from "$app/paths";
+  import InputValue from "../components/InputValue.svelte";
+  import InputText from "../components/InputText.svelte";
+  // import { base } from "$app/paths";
 
   const units = [
     {
@@ -73,18 +69,18 @@
 
 <aside>
   <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
+    
     <!-- Size -->
     <InputValue bind={baseSize} handler={handleInput} />
+
     <!-- Units -->
     <!-- <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/> -->
+    
     <!-- Scale -->
     <InputSelect title="Escala" bind={scale} options={scales} handler={handleInput}/>
+    
     <!-- Text -->
-    <div class="flex flex-col gap-1">
-      <label for="input-text" class="text-sm">Texto</label>
-      <div class="flex gap-2 items-center">
-        <input type="text" class="p-1 bg-slate-300" bind:value={$inputText} />
-      </div>
-    </div>
+    <InputText bind={inputText}/>
+
   </form>
 </aside>
