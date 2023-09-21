@@ -68,7 +68,7 @@
 </script>
 
 <aside>
-  <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
+  <form class="bg-slate-200 px-3 py-3 flex flex-row gap-5">
     
     <!-- Size -->
     <InputValue label="Tamanho base" bind={baseSize} handler={handleInput} />
