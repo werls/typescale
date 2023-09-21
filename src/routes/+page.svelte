@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { typeScale, inputText, scale, levels, baseSize, unit } from "../stores.js";
+  import { fonts, typeScale, inputText, scale, levels, baseSize, unit } from "../stores.js";
   import { TypeScale } from "$lib/typeScale";
   import LineOfType from "../components/LineOfType.svelte";
   import Controller from "../components/Controller.svelte";
@@ -35,6 +35,7 @@
 
   onMount(() => {
     document.title = "Typescale";
+    console.log($fonts)
   });
 </script>
 

@@ -1,7 +1,7 @@
 <script>
   import {
     baseSize, inputText, scale, levels,
-    typeScale, unit
+    typeScale, unit, fonts
   } from "../stores.js";
 
   import { onMount } from "svelte";
@@ -59,8 +59,6 @@
 
   function handleInput() {
     typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
-
-    // baseSize.set($typeScale.baseSize)
   }
 
   onMount(() => {
@@ -79,6 +77,25 @@
     
     <!-- Scale -->
     <InputSelect label="Escala" bind={scale} options={scales} handler={handleInput}/>
+
+    <!-- Fonts -->
+    <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm" for="base-size">Fonte</label>
+      <div class="flex gap-2 items-center">
+        <select
+          class="h-8 bg-transparent"
+          name="font"
+          id="font"
+        >
+          {#each $fonts as font}
+            <option value={font.family}
+              >{font.family}</option
+            >
+          {/each}
+        </select>
+      </div>
+    </div>
     
     <!-- Text -->
     <InputText label="Texto" bind={inputText}/>
