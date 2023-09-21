@@ -8,7 +8,7 @@
   <label class="text-sm" for="base-size">{label}</label>
   <div class="flex gap-2 items-center">
     <input
-      class="bg-transparent flex-none h-8"
+      class="bg-transparent flex-none h-8 w-12"
       name="base-size"
       type="number"
       bind:value={$bind}

@@ -10,7 +10,7 @@
 	<label class="text-sm" for="base-size">{label}</label>
 	<div class="flex gap-2 items-center">
 		<select
-			class="bg-slate-300 h-8 bg-transparent"
+			class="h-8 bg-transparent"
 			name="{label}"
 			id="{label}"
 			bind:value={$bind}
