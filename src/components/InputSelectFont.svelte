@@ -6,6 +6,8 @@
 	const fonts = fontsData.items;
 
 	const sort = Math.floor(Math.random() * fonts.length);
+
+	export let disabled = false;
 	
 	
 	// font.set(selectedFont)
@@ -16,7 +18,7 @@
 	}
 
 	onMount(() => {
-		$font = fonts[sort].family;
+		// $font = fonts[sort].family;
 	})
 
 </script>
@@ -30,6 +32,7 @@
 		id="font"
 		bind:value={$font}
 		on:change={handleInput}
+		{disabled}
 		>
 				{#each fonts as font}
 					<option value={font.family}>{font.family}</option>
