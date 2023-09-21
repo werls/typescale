@@ -1,7 +1,11 @@
 <script>
   import {
-    baseSize, inputText, scale, levels,
-    typeScale, unit
+    baseSize,
+    inputText,
+    scale,
+    levels,
+    typeScale,
+    unit,
   } from "../stores.js";
 
   import { onMount } from "svelte";
@@ -20,8 +24,8 @@
     {
       name: "Pontos",
       value: "pt",
-    }
-  ]
+    },
+  ];
 
   const scales = [
     {
@@ -63,29 +67,38 @@
   }
 
   onMount(() => {
-		handleInput()
+    handleInput();
     // console.log(fonts)
   });
 </script>
 
 <aside>
-  <form class="bg-slate-200 px-3 py-3 flex flex-row gap-6">
+  <form class="bg-slate-200 px-3 py-3 flex flex-row gap-6 flex-wrap">
     
     <!-- Size -->
     <InputValue label="Tamanho base" bind={baseSize} handler={handleInput} />
 
     <!-- Units -->
-    <InputSelect label="Unidade" bind={unit} options={units} handler={handleInput}/>
-    
+    <InputSelect
+      label="Unidade"
+      bind={unit}
+      options={units}
+      handler={handleInput}
+    />
+
     <!-- Scale -->
-    <InputSelect label="Escala" bind={scale} options={scales} handler={handleInput}/>
+    <InputSelect
+      label="Escala"
+      bind={scale}
+      options={scales}
+      handler={handleInput}
+    />
 
     <!-- Fonts -->
     <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
-    <InputSelectFont/>
-    
-    <!-- Text -->
-    <InputText label="Texto" bind={inputText}/>
+    <InputSelectFont />
 
+    <!-- Text -->
+    <InputText label="Texto" bind={inputText} />
   </form>
 </aside>
