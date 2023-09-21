@@ -4,6 +4,7 @@
 	export let handler;
 	export let label;
 	export let bind;
+	export let disabled = false;
 </script>
 
 <div class="flex flex-col gap-1">
@@ -11,10 +12,11 @@
 	<div class="flex gap-2 items-center">
 		<select
 			class="h-8 bg-transparent"
-			name="{label}"
-			id="{label}"
+			name={label}
+			id={label}
 			bind:value={$bind}
 			on:change={handler}
+			{disabled}
 		>
 			{#each options as option}
 				<option value={option.value}

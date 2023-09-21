@@ -1,13 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { fonts, typeScale, inputText, scale, levels, baseSize, unit } from "../stores.js";
+  import { typeScale, inputText, scale, levels, baseSize, unit } from "../stores.js";
   import { TypeScale } from "$lib/typeScale";
   import LineOfType from "../components/LineOfType.svelte";
   import Controller from "../components/Controller.svelte";
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
-
-  $ : size = $baseSize * 2;
 
   function handleAdd() {
     levels.update(n => n + 1);
@@ -35,7 +33,7 @@
 
   onMount(() => {
     document.title = "Typescale";
-    console.log($fonts)
+    // console.log($fonts)
   });
 </script>
 

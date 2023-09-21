@@ -2,6 +2,7 @@
   export let handler;
   export let bind;
   export let label;
+  export let disabled = false;
 </script>
 
 <div class="flex flex-col gap-1">
@@ -13,6 +14,7 @@
       type="number"
       bind:value={$bind}
       on:input={handler}
+      {disabled}
     />
     <!-- <span class="text-sm align-bottom">{unit}</span> -->
   </div>
