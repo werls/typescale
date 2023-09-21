@@ -71,6 +71,7 @@
         <LineOfType {item} unit={$unit}>{$inputText}</LineOfType>
       {/each}
       <LineOfType item={$typeScale.body} unit={$unit}>{$inputText}</LineOfType>
+      <LineOfType item={$typeScale.small} unit={$unit}>{$inputText}</LineOfType>
     </div>
   </div>
 </main>

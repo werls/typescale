@@ -35,8 +35,8 @@ export class TypeScale {
 		let typeScale = ''
 			typeScale = {
 				headings: [],
-				body: { type: "body", size: baseSize_ },
-				small: [{ type: "small", size: baseSize_ / scale_ }]
+				body: { type: "corpo", size: baseSize_ },
+				small: { type: "mínimo", size: (baseSize_ / scale_).toFixed(2) }
 			}
 
 			for (let i = 1; i <= levels_; i++) {
