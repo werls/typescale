@@ -11,7 +11,7 @@ export let levels = writable(4);
 export let unit = writable('pt');
 export let typeScale = writable(TypeScale.generateTypeScale(baseSize, scale, levels));
 export let inputText = writable('Lorem ipsum dolor sit amet.');
-export let font = writable('Roboto');
+export let font = writable('Nunito');
 
 // export const fonts = writable([fontsData])
 

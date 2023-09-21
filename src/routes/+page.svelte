@@ -6,6 +6,8 @@
   import Controller from "../components/Controller.svelte";
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
+  import { font } from "../stores.js";
+  import { updateFont } from "$lib/updateFont.js";
 
   // export let data;
   // export let fonts = data.data;
@@ -34,12 +36,22 @@
   //   alert('Conteúdo copiado!');
   // }
 
+  // function updateFont() {
+  //   const head = document.querySelector("head");
+  //   const fontSheet = document.createElement("link");
+  //   fontSheet.rel = "stylesheet";
+  //   fontSheet.href = `https://fonts.googleapis.com/css2?family=${$font}:wght@400;500;600;700;800&display=swap`;
+  //   head.appendChild(fontSheet);
+  // }
+
+
   onMount(() => {
     document.title = "Typescale";
-    // console.log(data)
-    // console.log($fonts)
-    // console.log(data.data.props.data.items)
-    // console.log(fonts)
+    updateFont($font)
+    
+
+    // const main = document.querySelector("main");
+    // main.style.fontFamily = "Raleway, sans-serif";
   });
 </script>
 

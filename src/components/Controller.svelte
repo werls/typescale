@@ -82,7 +82,7 @@
 
     <!-- Fonts -->
     <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
-    <InputSelectFont disabled="true"/>
+    <InputSelectFont/>
     
     <!-- Text -->
     <InputText label="Texto" bind={inputText}/>

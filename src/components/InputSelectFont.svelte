@@ -3,22 +3,19 @@
 	import { onMount } from 'svelte';
 	import fontsData from '$lib/fonts.json';
 	import { font } from '../stores.js';
+	import { updateFont } from '$lib/updateFont.js';
 	const fonts = fontsData.items;
 
 	const sort = Math.floor(Math.random() * fonts.length);
 
 	export let disabled = false;
-	
-	
-	// font.set(selectedFont)
-	// console.log(selectedFont)
 
 	function handleInput() {
-		console.log($font)
+		updateFont($font)
 	}
 
 	onMount(() => {
-		// $font = fonts[sort].family;
+		$font = fonts[sort].family;
 	})
 
 </script>
