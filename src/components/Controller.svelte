@@ -9,6 +9,7 @@
   import InputSelect from "../components/InputSelect.svelte";
   import InputValue from "../components/InputValue.svelte";
   import InputText from "../components/InputText.svelte";
+  import InputSelectFont from "../components/InputSelectFont.svelte";
   // import { base } from "$app/paths";
 
   const units = [
@@ -81,23 +82,7 @@
 
     <!-- Fonts -->
     <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
-    <!-- <div class="flex flex-col gap-1">
-      <label class="text-sm" for="base-size">Fonte</label>
-      <div class="flex gap-2 items-center">
-        <select
-          class="h-8 bg-transparent"
-          name="font"
-          id="font"
-          disabled
-        >
-          {#each fonts as font}
-            <option value={font.family}
-              >{font.family}</option
-            >
-          {/each}
-        </select>
-      </div>
-    </div> -->
+    <InputSelectFont />
     
     <!-- Text -->
     <InputText label="Texto" bind={inputText}/>

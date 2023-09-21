@@ -36,6 +36,7 @@
 
   onMount(() => {
     document.title = "Typescale";
+    // console.log(data)
     // console.log($fonts)
     // console.log(data.data.props.data.items)
     // console.log(fonts)
