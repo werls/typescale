@@ -11,6 +11,8 @@
   import InputText from "../components/InputText.svelte";
   // import { base } from "$app/paths";
 
+  export let fonts;
+
   const units = [
     {
       name: "Pixels",
@@ -63,6 +65,7 @@
 
   onMount(() => {
 		handleInput()
+    // console.log(fonts)
   });
 </script>
 
@@ -80,22 +83,23 @@
 
     <!-- Fonts -->
     <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
-    <!-- <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-1">
       <label class="text-sm" for="base-size">Fonte</label>
       <div class="flex gap-2 items-center">
         <select
           class="h-8 bg-transparent"
           name="font"
           id="font"
+          disabled
         >
-          {#each $fonts as font}
+          {#each fonts as font}
             <option value={font.family}
               >{font.family}</option
             >
           {/each}
         </select>
       </div>
-    </div> -->
+    </div>
     
     <!-- Text -->
     <InputText label="Texto" bind={inputText}/>

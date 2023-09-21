@@ -7,6 +7,9 @@
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
 
+  export let data;
+  export let fonts = data.data;
+
   function handleAdd() {
     levels.update(n => n + 1);
     typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
@@ -34,10 +37,12 @@
   onMount(() => {
     document.title = "Typescale";
     // console.log($fonts)
+    // console.log(data.data.props.data.items)
+    // console.log(fonts)
   });
 </script>
 
-<Controller />
+<Controller {fonts} />
 
 <main class="py-3 flex flex-col justify-center items-center">
   <div class="px-3 flex items-center gap-3 w-full">
