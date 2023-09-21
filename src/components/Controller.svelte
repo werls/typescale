@@ -11,8 +11,6 @@
   import InputText from "../components/InputText.svelte";
   // import { base } from "$app/paths";
 
-  export let fonts;
-
   const units = [
     {
       name: "Pixels",

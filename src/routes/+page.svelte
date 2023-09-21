@@ -7,8 +7,8 @@
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
 
-  export let data;
-  export let fonts = data.data;
+  // export let data;
+  // export let fonts = data.data;
 
   function handleAdd() {
     levels.update(n => n + 1);
@@ -42,7 +42,7 @@
   });
 </script>
 
-<Controller {fonts} />
+<Controller />
 
 <main class="py-3 flex flex-col justify-center items-center">
   <div class="px-3 flex items-center gap-3 w-full">
