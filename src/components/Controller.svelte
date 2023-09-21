@@ -81,7 +81,7 @@
 
     <!-- Fonts -->
     <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
-    <div class="flex flex-col gap-1">
+    <!-- <div class="flex flex-col gap-1">
       <label class="text-sm" for="base-size">Fonte</label>
       <div class="flex gap-2 items-center">
         <select
@@ -97,7 +97,7 @@
           {/each}
         </select>
       </div>
-    </div>
+    </div> -->
     
     <!-- Text -->
     <InputText label="Texto" bind={inputText}/>
