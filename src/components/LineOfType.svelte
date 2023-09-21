@@ -1,16 +1,13 @@
 <script>
   import { unit } from '../stores.js';
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
 
   export let item;
 
-  let fontSize;
-
   $: fontSize = `${item.size}${$unit}`;
 
-  onMount(() => {
-    console.log($unit);
-  });
+  // onMount(() => {
+  // });
 </script>
 
 <div class="p-3 text-slate-400 w-full">

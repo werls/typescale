@@ -1,11 +1,13 @@
 <script>
   import { onMount } from "svelte";
-  import { typeScale, inputText, scale, levels, baseSize } from "../stores.js";
+  import { typeScale, inputText, scale, levels, baseSize, unit } from "../stores.js";
   import { TypeScale } from "$lib/typeScale";
   import LineOfType from "../components/LineOfType.svelte";
   import Controller from "../components/Controller.svelte";
   import Button from "../components/Button.svelte";
   import ButtonIcon from "../components/ButtonIcon.svelte";
+
+  $ : size = $baseSize * 2;
 
   function handleAdd() {
     levels.update(n => n + 1);
@@ -18,21 +20,21 @@
     typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
   }
 
-  function copyToClipboard() {
-    const myDiv = document.getElementById('content');
-    const range = document.createRange();
-    range.selectNode(myDiv);
+  // function copyToClipboard() {
+  //   const myDiv = document.getElementById('content');
+  //   const range = document.createRange();
+  //   range.selectNode(myDiv);
 
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand("copy");
+  //   window.getSelection().removeAllRanges();
+  //   window.getSelection().addRange(range);
+  //   document.execCommand("copy");
 
-    window.getSelection().removeAllRanges();
-    alert('Conteúdo copiado!');
-  }
+  //   window.getSelection().removeAllRanges();
+  //   alert('Conteúdo copiado!');
+  // }
 
   onMount(() => {
-    document.title = "Typescale"
+    document.title = "Typescale";
   });
 </script>
 
@@ -49,9 +51,9 @@
   <div class="w-full flex">
     <div id="content" class="w-full">
       {#each $typeScale.headings as item}
-        <LineOfType {item}>{$inputText}</LineOfType>
+        <LineOfType {item} unit={$unit}>{$inputText}</LineOfType>
       {/each}
-      <LineOfType item={$typeScale.body}>{$inputText}</LineOfType>
+      <LineOfType item={$typeScale.body} unit={$unit}>{$inputText}</LineOfType>
     </div>
   </div>
 </main>

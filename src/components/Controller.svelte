@@ -58,7 +58,8 @@
   ];
 
   function handleInput() {
-    typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels, $unit));
+    typeScale.set(TypeScale.generateTypeScale($baseSize, $scale, $levels));
+
     // baseSize.set($typeScale.baseSize)
   }
 
@@ -74,7 +75,7 @@
     <InputValue label="Tamanho base" bind={baseSize} handler={handleInput} />
 
     <!-- Units -->
-    <!-- <InputSelect label="Unidade" bind={unit} options={units} handler={handleInput}/> -->
+    <InputSelect label="Unidade" bind={unit} options={units} handler={handleInput}/>
     
     <!-- Scale -->
     <InputSelect label="Escala" bind={scale} options={scales} handler={handleInput}/>

@@ -14,6 +14,6 @@
       bind:value={$bind}
       on:input={handler}
     />
-    <span class="text-sm align-bottom">px</span>
+    <!-- <span class="text-sm align-bottom">{unit}</span> -->
   </div>
 </div>

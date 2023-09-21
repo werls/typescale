@@ -31,12 +31,8 @@ export class TypeScale {
 	 * @param {string} unit_ - The unit of measurement for the base size (default is 'px').
 	 * @returns {object} - The generated type scale object.
 	 */
-	static generateTypeScale(baseSize_, scale_, levels_ = 4, unit_ = 'px') {
-		const ptToPx = (pt) => { return (pt * 1.3333333333333) }
-		const pxToPt = (px) => { return (px / 1.3333333333333) }
-
+	static generateTypeScale(baseSize_, scale_, levels_ = 4) {
 		let typeScale = ''
-		if (unit_ === 'px') {
 			typeScale = {
 				headings: [],
 				body: { type: "body", size: baseSize_ },
@@ -49,21 +45,6 @@ export class TypeScale {
 					size: (baseSize_ * scale_ ** (levels_ - i + 1)).toFixed(2),
 				})
 			}
-		} else if (unit_ === 'pt') {
-			typeScale = {
-				headings: [],
-				body: { type: "body", size: ptToPx(baseSize_) },
-				small: [{ type: "small", size: ptToPx(baseSize_ / scale_) }]
-			}
-
-			for (let i = 1; i <= levels_; i++) {
-				typeScale.headings.push({
-					type: `h${i}`,
-					size: (ptToPx(baseSize_) * scale_ ** (levels_ - i + 1)).toFixed(2),
-				})
-			}
-		}
-
 		return typeScale
 	}
 
