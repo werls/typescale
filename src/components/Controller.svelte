@@ -71,16 +71,16 @@
   <form class="bg-slate-200 px-3 py-5 flex flex-col gap-2">
     
     <!-- Size -->
-    <InputValue bind={baseSize} handler={handleInput} />
+    <InputValue label="Tamanho base" bind={baseSize} handler={handleInput} />
 
     <!-- Units -->
-    <!-- <InputSelect title="Unidade" bind={unit} options={units} handler={handleInput}/> -->
+    <!-- <InputSelect label="Unidade" bind={unit} options={units} handler={handleInput}/> -->
     
     <!-- Scale -->
-    <InputSelect title="Escala" bind={scale} options={scales} handler={handleInput}/>
+    <InputSelect label="Escala" bind={scale} options={scales} handler={handleInput}/>
     
     <!-- Text -->
-    <InputText bind={inputText}/>
+    <InputText label="Texto" bind={inputText}/>
 
   </form>
 </aside>

@@ -2,17 +2,17 @@
 	import { scale } from "../stores.js";
 	export let options;
 	export let handler;
-	export let title;
+	export let label;
 	export let bind;
 </script>
 
 <div class="flex flex-col gap-1">
-	<label class="text-sm" for="base-size">{title}</label>
+	<label class="text-sm" for="base-size">{label}</label>
 	<div class="flex gap-2 items-center">
 		<select
 			class="p-1 bg-slate-300"
-			name="{title}"
-			id="{title}"
+			name="{label}"
+			id="{label}"
 			bind:value={$bind}
 			on:change={handler}
 		>
