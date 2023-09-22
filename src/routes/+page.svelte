@@ -61,14 +61,13 @@
     updateFont($font)
 
     $inputText = textOptions[Math.floor(Math.random() * textOptions.length)];
-    
 
     // const main = document.querySelector("main");
     // main.style.fontFamily = "Raleway, sans-serif";
   });
 </script>
 
-<Controller />
+<Controller {textOptions} />
 
 <main class="py-3 flex flex-col justify-center items-center">
   <div class="px-3 flex items-center gap-3 w-full">

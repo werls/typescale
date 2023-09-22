@@ -16,6 +16,8 @@
   import InputSelectFont from "../components/InputSelectFont.svelte";
   // import { base } from "$app/paths";
 
+  export let textOptions;
+
   const units = [
     {
       name: "Pixels",
@@ -99,6 +101,6 @@
     <InputSelectFont />
 
     <!-- Text -->
-    <InputText label="Texto" bind={inputText} />
+    <InputText label="Texto" bind={inputText} {textOptions} />
   </form>
 </aside>
