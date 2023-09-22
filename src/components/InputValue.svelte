@@ -17,6 +17,5 @@
       on:input={handler}
       {disabled}
     />
-    <!-- <span class="text-sm align-bottom">{unit}</span> -->
   </div>
 </div>
