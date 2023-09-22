@@ -2,6 +2,7 @@
   import { unit } from '../stores.js';
   import { font } from '../stores.js';
   import { onMount } from 'svelte';
+  import { inputText } from '../stores.js';
 
   export let item;
 
@@ -16,10 +17,12 @@
   <div class="grid grid-cols-10 items-baseline gap-2">
     <div class="text-xs col-span-1">{item.type}</div>
     <!-- <div style="font-size:{fontSize}" class="text-scale text-gray-900 line-clamp-1 col-span-8 transition-all duration-500"> -->
-    <div style="font-size:{fontSize}; font-family:{$font}" class="text-scale text-gray-900 line-clamp-1 col-span-8 transition-all duration-500">
-      <slot />
-    </div>
+    <!-- <div style="font-size:{fontSize}; font-family:{$font}" class="text-scale text-gray-900 line-clamp-1 col-span-8 transition-all duration-500"> -->
+    <input bind:value={$inputText} type="text" style="font-size:{fontSize}; font-family:{$font}" class="text-scale text-gray-900 line-clamp-1 col-span-8 transition-all duration-500"/>
+      <!-- <slot /> -->
+    <!-- </div> -->
     <div class="text-xs col-span-1 justify-self-end">{fontSize}</div>
-  </div>
+    </div>
+  <!-- </input> -->
   <hr class="border-gray-300" />
 </div>
