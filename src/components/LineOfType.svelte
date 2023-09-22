@@ -9,7 +9,7 @@
   $: fontSize = `${item.size}${$unit}`;
 
   onMount(() => {
-    console.log($font)
+    // console.log($font)
   });
 </script>
 
