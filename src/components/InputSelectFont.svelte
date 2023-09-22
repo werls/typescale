@@ -8,6 +8,14 @@
 
 	const sort = Math.floor(Math.random() * fonts.length);
 
+	const fontOptions = [
+		"Roboto",
+		"Raleway",
+		"Fira Sans",
+		"Manrope",
+		"Assistant",
+	]
+
 	export let disabled = false;
 
 	function handleInput() {
@@ -15,7 +23,8 @@
 	}
 
 	onMount(() => {
-		$font = fonts[sort].family;
+		// $font = fonts[sort].family;
+		$font = fontOptions[Math.floor(Math.random() * fontOptions.length)]
 	})
 
 </script>
