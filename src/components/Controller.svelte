@@ -75,7 +75,8 @@
 </script>
 
 <aside>
-  <form class="bg-slate-200 px-3 py-3 flex flex-row gap-6 flex-wrap">
+  <form class="bg-slate-200 px-3 py-3 flex flex-row gap-y-2 gap-x-5 flex-wrap">
+  <!-- <form class="bg-slate-200 px-3 py-3 grid grid-cols-4 grid gap-2 gap-x-5 flex-wrap"> -->
     
     <!-- Size -->
     <InputValue label="Tamanho base" bind={baseSize} handler={handleInput} />
@@ -97,7 +98,6 @@
     />
 
     <!-- Fonts -->
-    <!-- <InputSelect label="Escala" bind={font} options={fonts} handler={handleInput}/> -->
     <InputSelectFont />
 
     <!-- Text -->
