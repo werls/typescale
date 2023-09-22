@@ -12,6 +12,7 @@
     class="h-10 w-20 bg-transparent border rounded-lg p-1 hover:border-slate-300"
       name="base-size"
       type="number"
+      min="5"
       bind:value={$bind}
       on:input={handler}
       {disabled}
