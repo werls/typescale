@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta property="og:image" content="/og.png" />
-		<meta name="twitter:image" content="/og.png" />
-		<meta name="twitter:site" content="Typescale" />
-		<meta name="twitter:creator" content="@werls" />
-		<meta property="og:title" content="Typescale" />
-		<meta property="og:description" content="Typescale" />
-		<meta name="description" content="Typescale" />
-		<meta property="og:url" content="https://werls.xyz/tools/typescale" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<meta charset="utf-8"/>
+		<link rel="icon" href="/favicon.ico"/>
+		<meta name="viewport" content="width=device-width"/>
+		<meta property="og:image" content="/og.png"/>
+		<meta name="twitter:image" content="/og.png"/>
+		<meta name="twitter:site" content="Typescale"/>
+		<meta name="twitter:creator" content="@werls"/>
+		<meta property="og:title" content="Typescale"/>
+		<meta property="og:description" content="Typescale"/>
+		<meta name="description" content="Typescale"/>
+		<meta property="og:url" content="https://werls.xyz/tools/typescale"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 		<title>Typescale</title>
 		%sveltekit.head%
 	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1V7KB4PE2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-S1V7KB4PE2');
+	</script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
