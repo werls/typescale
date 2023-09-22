@@ -2,11 +2,16 @@
   import "../app.css";
   import Header from "../components/Header.svelte";
   import Popup from "../components/Popup.svelte";
+  import Footer from "../components/Footer.svelte";
 </script>
 
 <Header />
 
 <slot />
+
+<Footer />
+
+
 
 <!-- <Popup>
   <div>
