@@ -44,10 +44,23 @@
   //   head.appendChild(fontSheet);
   // }
 
+  const textOptions = [
+    "Edital de Seleção de Pesquisadores - Nº 01/2023",
+    "Objetivo Geral",
+    "Objetivos Específicos",
+    "Áreas de Pesquisa",
+    "Etapas do Processo Seletivo",
+    "Documentos Necessários",
+    "Avaliação e Resultados",
+    "Disposições Finais"
+  ]
+
 
   onMount(() => {
     document.title = "Typescale";
     updateFont($font)
+
+    $inputText = textOptions[Math.floor(Math.random() * textOptions.length)];
     
 
     // const main = document.querySelector("main");
